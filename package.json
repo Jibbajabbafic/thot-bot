@@ -1,0 +1,11 @@
+{
+  "name": "thot-bot",
+  "version": "1.0.0",
+  "description": "My own Discord bot",
+  "main": "bot.js",
+  "author": "JJ",
+  "dependencies": {
+    "discord.io": "^2.5.1",
+    "winston": "^2.3.1"
+  }
+}

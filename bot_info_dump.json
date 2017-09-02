@@ -1,0 +1,453 @@
+{
+	"presenceStatus": "online",
+	"connected": true,
+	"inviteURL": "https://discordapp.com/oauth2/authorize?client_id=348918407476936705&scope=bot",
+	"_events": {},
+	"_eventsCount": 2,
+	"servers": {
+		"338812737268219908": {
+			"verification_level": 0,
+			"unavailable": false,
+			"system_channel_id": null,
+			"splash": null,
+			"roles": {
+				"338812737268219908": {
+					"position": 0,
+					"name": "@everyone",
+					"mentionable": false,
+					"managed": false,
+					"id": "338812737268219908",
+					"hoist": false,
+					"color": 0,
+					"_permissions": 104324161
+				},
+				"343381227480285186": {
+					"position": 2,
+					"name": "ＡＬＬ　ＭＩＧＨＴＹ　ＡＤＭＩＮ",
+					"mentionable": false,
+					"managed": false,
+					"id": "343381227480285186",
+					"hoist": true,
+					"color": 2067276,
+					"_permissions": 2146958591
+				},
+				"348593088807043074": {
+					"position": 1,
+					"name": "Whistleboy",
+					"mentionable": false,
+					"managed": false,
+					"id": "348593088807043074",
+					"hoist": true,
+					"color": 10038562,
+					"_permissions": 104324161
+				}
+			},
+			"region": "eu-west",
+			"owner_id": "269522334581391361",
+			"name": "ＥＹＥ　ＰＯＰＰＩＮ　ＣＨＡＴＴＥ",
+			"mfa_level": 0,
+			"members": {
+				"184405311681986560": {
+					"roles": [],
+					"mute": false,
+					"deaf": false,
+					"id": "184405311681986560",
+					"joined_at": 1503262352527,
+					"color": null,
+					"status": "online"
+				},
+				"210743807921094666": {
+					"roles": [
+						"343381227480285186"
+					],
+					"nick": "Lil' Peppa",
+					"mute": false,
+					"deaf": false,
+					"id": "210743807921094666",
+					"joined_at": 1501427349482,
+					"color": 2067276,
+					"status": "online",
+					"voice_channel_id": "338812737268219910"
+				},
+				"224901160794980353": {
+					"roles": [
+						"348593088807043074"
+					],
+					"nick": "Whistleboy",
+					"mute": false,
+					"deaf": false,
+					"id": "224901160794980353",
+					"joined_at": 1501792681331,
+					"color": 10038562,
+					"status": "online",
+					"voice_channel_id": "338812737268219910"
+				},
+				"235057519326658560": {
+					"roles": [],
+					"nick": "Bevvy Boiii",
+					"mute": false,
+					"deaf": false,
+					"id": "235057519326658560",
+					"joined_at": 1500849696247,
+					"color": null
+				},
+				"268187411786366996": {
+					"roles": [],
+					"mute": false,
+					"deaf": false,
+					"id": "268187411786366996",
+					"joined_at": 1502656440446,
+					"color": null
+				},
+				"269522334581391361": {
+					"roles": [
+						"343381227480285186"
+					],
+					"mute": false,
+					"deaf": false,
+					"id": "269522334581391361",
+					"joined_at": 1500849651455,
+					"color": 2067276,
+					"status": "online"
+				},
+				"341192306147196928": {
+					"roles": [],
+					"mute": false,
+					"deaf": false,
+					"id": "341192306147196928",
+					"joined_at": 1501431143057,
+					"color": null
+				},
+				"341662689090600971": {
+					"roles": [],
+					"mute": false,
+					"deaf": false,
+					"id": "341662689090600971",
+					"joined_at": 1501529196255,
+					"color": null
+				},
+				"344592918624993283": {
+					"roles": [],
+					"mute": false,
+					"deaf": false,
+					"id": "344592918624993283",
+					"joined_at": 1502227932317,
+					"color": null,
+					"status": "online",
+					"voice_channel_id": "338812737268219910"
+				},
+				"348918407476936705": {
+					"roles": [],
+					"mute": false,
+					"deaf": false,
+					"id": "348918407476936705",
+					"joined_at": 1503259835341,
+					"color": null,
+					"status": "online",
+					"voice_channel_id": null
+				}
+			},
+			"member_count": 10,
+			"large": false,
+			"joined_at": "2017-08-20T20:10:35.341067+00:00",
+			"id": "338812737268219908",
+			"icon": "2f0f8b870dc21dce389c3a838330a943",
+			"features": [],
+			"explicit_content_filter": 0,
+			"emojis": {
+				"343382455467638786": {
+					"roles": [],
+					"require_colons": true,
+					"name": "poppin",
+					"managed": false,
+					"id": "343382455467638786"
+				}
+			},
+			"default_message_notifications": 0,
+			"channels": {
+				"338812737268219908": {
+					"members": {},
+					"permissions": {
+						"user": {
+							"235057519326658560": {
+								"allow": 0,
+								"deny": 0
+							},
+							"269522334581391361": {
+								"allow": 805306385,
+								"deny": 0
+							}
+						},
+						"role": {
+							"338812737268219908": {
+								"allow": 0,
+								"deny": 0
+							}
+						}
+					},
+					"guild_id": "338812737268219908",
+					"type": "text",
+					"topic": "PURES ARE GAY, icky boiiiis > pures\n<33333",
+					"position": 0,
+					"name": "runts_and_cunts",
+					"last_pin_timestamp": "2017-08-05T13:20:53.151000+00:00",
+					"last_message_id": "350021934597275658",
+					"id": "338812737268219908"
+				},
+				"338812737268219910": {
+					"members": {
+						"210743807921094666": {
+							"user_id": "210743807921094666",
+							"suppress": false,
+							"session_id": "94faea1fe3e01c0b8cbe6cc2ad121f51",
+							"self_video": false,
+							"self_mute": false,
+							"self_deaf": false,
+							"mute": false,
+							"deaf": false,
+							"channel_id": "338812737268219910"
+						},
+						"224901160794980353": {
+							"user_id": "224901160794980353",
+							"suppress": false,
+							"session_id": "eddeff17c5899c7a9d6af61c6fa5df84",
+							"self_video": false,
+							"self_mute": false,
+							"self_deaf": false,
+							"mute": false,
+							"deaf": false,
+							"channel_id": "338812737268219910"
+						},
+						"344592918624993283": {
+							"user_id": "344592918624993283",
+							"suppress": false,
+							"session_id": "18fd8ab32c438c401b429f9dc94cb7f8",
+							"self_video": false,
+							"self_mute": false,
+							"self_deaf": false,
+							"mute": false,
+							"deaf": false,
+							"channel_id": "338812737268219910"
+						}
+					},
+					"permissions": {
+						"user": {},
+						"role": {}
+					},
+					"guild_id": "338812737268219908",
+					"user_limit": 0,
+					"type": "voice",
+					"position": 0,
+					"name": "cunts_and_runts",
+					"id": "338812737268219910",
+					"bitrate": 64000
+				}
+			},
+			"application_id": null,
+			"afk_timeout": 300,
+			"afk_channel_id": null,
+			"voiceSession": null
+		}
+	},
+	"channels": {
+		"338812737268219908": {
+			"members": {},
+			"permissions": {
+				"user": {
+					"235057519326658560": {
+						"allow": 0,
+						"deny": 0
+					},
+					"269522334581391361": {
+						"allow": 805306385,
+						"deny": 0
+					}
+				},
+				"role": {
+					"338812737268219908": {
+						"allow": 0,
+						"deny": 0
+					}
+				}
+			},
+			"guild_id": "338812737268219908",
+			"type": "text",
+			"topic": "PURES ARE GAY, icky boiiiis > pures\n<33333",
+			"position": 0,
+			"name": "runts_and_cunts",
+			"last_pin_timestamp": "2017-08-05T13:20:53.151000+00:00",
+			"last_message_id": "350021934597275658",
+			"id": "338812737268219908"
+		},
+		"338812737268219910": {
+			"members": {
+				"210743807921094666": {
+					"user_id": "210743807921094666",
+					"suppress": false,
+					"session_id": "94faea1fe3e01c0b8cbe6cc2ad121f51",
+					"self_video": false,
+					"self_mute": false,
+					"self_deaf": false,
+					"mute": false,
+					"deaf": false,
+					"channel_id": "338812737268219910"
+				},
+				"224901160794980353": {
+					"user_id": "224901160794980353",
+					"suppress": false,
+					"session_id": "eddeff17c5899c7a9d6af61c6fa5df84",
+					"self_video": false,
+					"self_mute": false,
+					"self_deaf": false,
+					"mute": false,
+					"deaf": false,
+					"channel_id": "338812737268219910"
+				},
+				"344592918624993283": {
+					"user_id": "344592918624993283",
+					"suppress": false,
+					"session_id": "18fd8ab32c438c401b429f9dc94cb7f8",
+					"self_video": false,
+					"self_mute": false,
+					"self_deaf": false,
+					"mute": false,
+					"deaf": false,
+					"channel_id": "338812737268219910"
+				}
+			},
+			"permissions": {
+				"user": {},
+				"role": {}
+			},
+			"guild_id": "338812737268219908",
+			"user_limit": 0,
+			"type": "voice",
+			"position": 0,
+			"name": "cunts_and_runts",
+			"id": "338812737268219910",
+			"bitrate": 64000
+		}
+	},
+	"users": {
+		"184405311681986560": {
+			"username": "FredBoat♪♪",
+			"id": "184405311681986560",
+			"discriminator": "7284",
+			"bot": true,
+			"avatar": "f20c8d9639cd674652254af0ffd3e9d2",
+			"game": {
+				"type": 0,
+				"name": "Say ;;help"
+			}
+		},
+		"210743807921094666": {
+			"username": "Jibby",
+			"id": "210743807921094666",
+			"discriminator": "7850",
+			"avatar": "6c92fe196fe87e915cc5fe027cb86b35",
+			"bot": false,
+			"game": null
+		},
+		"224901160794980353": {
+			"username": "GT Whistle Boy",
+			"id": "224901160794980353",
+			"discriminator": "5977",
+			"avatar": "b06bf745304bdda4f508bb9ff947d5c1",
+			"bot": false,
+			"game": null
+		},
+		"235057519326658560": {
+			"username": "Crazy Tom",
+			"id": "235057519326658560",
+			"discriminator": "3708",
+			"avatar": "7d1035e3eba53c167334a32e0f3bfe61",
+			"bot": false
+		},
+		"268187411786366996": {
+			"username": "br0nzedagger",
+			"id": "268187411786366996",
+			"discriminator": "1712",
+			"avatar": null,
+			"bot": false
+		},
+		"269522334581391361": {
+			"username": "Roidhouse",
+			"id": "269522334581391361",
+			"discriminator": "5508",
+			"avatar": null,
+			"bot": false,
+			"game": null
+		},
+		"341192306147196928": {
+			"username": "CHRUSTY BALLOCKS",
+			"id": "341192306147196928",
+			"discriminator": "1006",
+			"avatar": "50246667de3789f0a77159cb899417a6",
+			"bot": false
+		},
+		"341662689090600971": {
+			"username": "WizenedChimp",
+			"id": "341662689090600971",
+			"discriminator": "1274",
+			"avatar": "dbeaa8e4521fe8c3641fd9be7848d1c0",
+			"bot": false
+		},
+		"344592918624993283": {
+			"username": "PleaseStopNoWaitStop",
+			"id": "344592918624993283",
+			"discriminator": "3835",
+			"avatar": "cdb8ae4604ea2b7e0399943d36905dab",
+			"bot": false,
+			"game": null
+		},
+		"348918407476936705": {
+			"username": "THOT BOT",
+			"id": "348918407476936705",
+			"discriminator": "9331",
+			"bot": true,
+			"avatar": "835509b83abe2567199bf1a9949a0f6d",
+			"game": null
+		}
+	},
+	"directMessages": {},
+	"internals": {
+		"oauth": {
+			"description": "",
+			"name": "THOT BOT",
+			"owner": {
+				"username": "Jibby",
+				"discriminator": "7850",
+				"id": "210743807921094666",
+				"avatar": "6c92fe196fe87e915cc5fe027cb86b35"
+			},
+			"bot_public": false,
+			"bot_require_code_grant": false,
+			"id": "348918407476936705",
+			"icon": "835509b83abe2567199bf1a9949a0f6d"
+		},
+		"version": "2.5.1",
+		"settings": {},
+		"token": "MzQ4OTE4NDA3NDc2OTM2NzA1.DHt9Yw.GM6ODQoBnPhA9itORRumRe8I-Ys",
+		"gatewayUrl": "wss://gateway.discord.gg/?encoding=json&v=5",
+		"sequence": 28,
+		"sessionID": "1c3845222ba597e1f4cb57a93e29e1ec",
+		"heartbeat": {
+			"0": null,
+			"_called": false,
+			"_idleTimeout": -1,
+			"_idlePrev": null,
+			"_idleNext": null,
+			"_idleStart": 990744,
+			"_onTimeout": null,
+			"_repeat": null
+		}
+	},
+	"verified": true,
+	"username": "THOT BOT",
+	"mfa_enabled": false,
+	"id": "348918407476936705",
+	"email": null,
+	"discriminator": "9331",
+	"bot": true,
+	"avatar": "835509b83abe2567199bf1a9949a0f6d"
+}
