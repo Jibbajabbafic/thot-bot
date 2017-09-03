@@ -8,6 +8,51 @@ var fs = require('fs');
 // cunts and runts channel id = '338812737268219910';
 // eye poppin chatte server id = '338812737268219908';
 
+// Admin list
+var adminList = [
+	'210743807921094666'
+];
+
+// Command list
+var cmdArry = [
+	{
+		command: 'thot',
+		type: 'ttsMessage',
+		content: "THOT BOT IS HERE!"
+	},
+	{
+		command: 'ark',
+		type: 'sound',
+		file: 'ark.ogg'
+	},
+	{
+		command: 'sniffy',
+		type: 'sound',
+		file: 'sniffy.ogg'
+	},
+	{
+		command: 'pizza',
+		type: 'sound',
+		file: 'pizzaball.ogg'
+	},
+	{
+		command: 'spegit',
+		type: 'sound',
+		file: 'spegit pizza.ogg'
+	},
+	{
+		command: 'nobber',
+		type: 'sound',
+		file: 'nobber.mp3'
+	},
+	{
+		command: 'sexy',
+		type: 'sound',
+		file: 'sexy egg.ogg'
+	}
+];
+
+// Function definitions
 function listVoiceChannels(server) {
     var channels = bot.servers[server].channels;
     for (var channel in channels) {
@@ -59,7 +104,7 @@ function playSoundInChannel(filename, userID, channelID, callback) {
             callback(err);
         }
     });
-    logger.info('Found voice channel ID: ' + foundVoiceChannelID);
+    // logger.info('Found voice channel ID: ' + foundVoiceChannelID);
 
     logger.info('Joining voice channel with ID: ' + foundVoiceChannelID);
 
@@ -117,14 +162,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
     // Our bot needs to know if it will execute a command
     // It will listen for messages that will start with `!`
     if (message.substring(0, 1) == '!') {
-        if (!isReady) {
-            logger.info('Bot not ready!');
-            bot.sendMessage({
-                to: channelID,
-                message: "HOLD ON I'M BUSY WITH SOMETHING PAL!"
-            });
-            return;
-        }
+
         var args = message.substring(1).split(' ');
         var cmd = args[0];
 
@@ -138,67 +176,149 @@ bot.on('message', function (user, userID, channelID, message, evt) {
         logger.info('==========');
         logger.info('Caught: !' + cmd);
         logger.info('From: ' + user)
-        switch(cmd) {
-            case 'thot':
-                logger.info('Valid command: ' + cmd);
-                isReady = false;
-                bot.sendMessage({
-                    to: channelID,
-                    message: 'THOT BOT IS HERE!',
-                    tts: true
-                });
-                // printAllInfo(user, userID, channelID, message, evt);
-                isReady = true;
-                break;
 
-            case 'pizza':
-                logger.info('Valid command: ' + cmd);
-                isReady = false;
+        if (adminList.indexOf(userID) >= 0) {
+        	logger.info('Admin detected!');
+        	// switch(cmd) {
+        	// 	case 'stop':
+        	// 		logger.info('Admin command: ' + cmd);
+        	// 		if (audioStream != null) audioStream.destroy();
+        	// 		break;
+        	// }
+        }
+        
+        if (!isReady) {
+            logger.info('Bot not ready!');
+            bot.sendMessage({
+                to: channelID,
+                message: "HOLD ON I'M BUSY WITH SOMETHING PAL!"
+            });
+            return;
+        }
+        else {
+        	cmdArry.find( function(cmdObj) {
+        		if (cmdObj.command == cmd) {
+        			logger.info('Valid command: ' + cmd);
+        			isReady = false;
+        			switch (cmdObj.type) {
+        				case 'ttsMessage':
+			                bot.sendMessage({
+			                    to: channelID,
+			                    message: cmdObj.content,
+			                    tts: true
+			                });
+			                isReady = true;
+        					break;
 
-                // bot.sendMessage({
-                //     to: channelID,
-                //     message: 'TIME TO DELIVER A PIZZABALL!',
-                //     tts: true
-                // });
+    					case 'sound':
+		        			playSoundInChannel(cmdObj.file, userID, channelID, function(err) {
+		                    	isReady = true;
+		                    	if (err) return logger.error(err);
+        					});
+        					break;
+        			}
+        			return;
+        		}
+        	});
 
-                playSoundInChannel('pizzaball.ogg', userID, channelID, function(err) {
-                    isReady = true;
-                    if (err) return logger.error(err);
-                });
+        	// switch(cmd) {
+	        //     case 'thot':
+	        //         logger.info('Valid command: ' + cmd);
+	        //         isReady = false;
+	        //         bot.sendMessage({
+	        //             to: channelID,
+	        //             message: 'THOT BOT IS HERE!',
+	        //             tts: true
+	        //         });
+	        //         // printAllInfo(user, userID, channelID, message, evt);
+	        //         isReady = true;
+	        //         break;
 
-                // var msgVoiceID = findVoiceChannelID_from_userID(userID, msgServerID);
+	            // case 'pizza':
+	            //     logger.info('Valid command: ' + cmd);
+	            //     isReady = false;
 
-                // printAllInfo(user, userID, channelID, message, evt);
-                // Get voiceChannelID from user/member object somehow
-                // bot.members???
-                // var msgServerID = bot.channels[channelID].guild_id;
-                // var msgVoiceID = bot.servers[msgServerID].members[userID].voice_channel_id;
-                // logger.info('Message received from:');
-                // logger.info('Server ID: ' + msgServerID);
-                // logger.info('Voice Channel ID: ' + msgVoiceID);
-                break;
+	            //     // bot.sendMessage({
+	            //     //     to: channelID,
+	            //     //     message: 'TIME TO DELIVER A PIZZABALL!',
+	            //     //     tts: true
+	            //     // });
 
-            case 'sniffy':
-                logger.info('Valid command: ' + cmd);
-                isReady = false;
-                playSoundInChannel('sniffy.ogg', userID, channelID, function(err) {
-                    isReady = true;
-                    if (err) return logger.error(err);
-                });
-                break;
+	            //     playSoundInChannel('pizzaball.ogg', userID, channelID, function(err) {
+	            //         isReady = true;
+	            //         if (err) return logger.error(err);
+	            //     });
 
-            // case 'oisd':
-            //     dumpBotJSON()
-            //     break;
-            // 
+	            //     // var msgVoiceID = findVoiceChannelID_from_userID(userID, msgServerID);
 
-            default:
-                logger.info('Invalid command: ' + cmd);
-                bot.sendMessage({
-                    to: channelID,
-                    message: "THAT'S NOT A VALID COMMAND YOU PLONKER!"
-                });
-                break;
+	            //     // printAllInfo(user, userID, channelID, message, evt);
+	            //     // Get voiceChannelID from user/member object somehow
+	            //     // bot.members???
+	            //     // var msgServerID = bot.channels[channelID].guild_id;
+	            //     // var msgVoiceID = bot.servers[msgServerID].members[userID].voice_channel_id;
+	            //     // logger.info('Message received from:');
+	            //     // logger.info('Server ID: ' + msgServerID);
+	            //     // logger.info('Voice Channel ID: ' + msgVoiceID);
+	            //     break;
+
+	            // case 'sniffy':
+	            //     logger.info('Valid command: ' + cmd);
+	            //     isReady = false;
+	            //     playSoundInChannel('sniffy.ogg', userID, channelID, function(err) {
+	            //         isReady = true;
+	            //         if (err) return logger.error(err);
+	            //     });
+	            //     break;
+
+	            // case 'ark':
+	            //     logger.info('Valid command: ' + cmd);
+	            //     isReady = false;
+	            //     playSoundInChannel('ark.ogg', userID, channelID, function(err) {
+	            //         isReady = true;
+	            //         if (err) return logger.error(err);
+	            //     });
+	            //     break;
+
+	            // case 'spegit':
+	            //     logger.info('Valid command: ' + cmd);
+	            //     isReady = false;
+	            //     playSoundInChannel('spegit pizza.ogg', userID, channelID, function(err) {
+	            //         isReady = true;
+	            //         if (err) return logger.error(err);
+	            //     });
+	            //     break;
+	            
+	            // case 'nobber':
+	            //     logger.info('Valid command: ' + cmd);
+	            //     isReady = false;
+	            //     playSoundInChannel('nobber.mp3', userID, channelID, function(err) {
+	            //         isReady = true;
+	            //         if (err) return logger.error(err);
+	            //     });
+	            //     break;
+
+	            // case 'sexy':
+	            //     logger.info('Valid command: ' + cmd);
+	            //     isReady = false;
+	            //     playSoundInChannel('sexy egg.ogg', userID, channelID, function(err) {
+	            //         isReady = true;
+	            //         if (err) return logger.error(err);
+	            //     });
+	            //     break;	                	                               
+
+	            // case 'oisd':
+	            //     dumpBotJSON()
+	            //     break;
+	            // 
+
+	            // default:
+	            //     logger.info('Invalid command: ' + cmd);
+	            //     bot.sendMessage({
+	            //         to: channelID,
+	            //         message: "THAT'S NOT A VALID COMMAND YOU PLONKER!"
+	            //     });
+	            //     break;
+        	// }
         }
     }
 });
