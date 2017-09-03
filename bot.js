@@ -49,6 +49,11 @@ var cmdArry = [
 		command: 'sexy',
 		type: 'sound',
 		file: 'sexy egg.ogg'
+	},
+	{
+		command: 'sam',
+		type: 'sound',
+		file: 'sam.mp3'
 	}
 ];
 
