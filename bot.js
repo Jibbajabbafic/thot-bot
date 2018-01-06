@@ -16,48 +16,72 @@ var adminList = [
 // Command list
 var cmdArry = [
 	{
+		command: 'help',
+		type: 'help',
+		description: 'Displays available commands'
+	},
+	{
 		command: 'thot',
 		type: 'ttsMessage',
+		description: 'Says THOT BOT IS HERES using TTS',
 		content: "THOT BOT IS HERE!"
 	},
 	{
 		command: 'ark',
 		type: 'sound',
+		description: 'Ark ark ark sound',
 		file: 'ark.ogg'
 	},
 	{
 		command: 'sniffy',
 		type: 'sound',
+		description: 'Sniffapoo raging',
 		file: 'sniffy.ogg'
 	},
 	{
 		command: 'pizza',
 		type: 'sound',
+		description: 'Pizzaball delivery',
 		file: 'pizzaball.ogg'
 	},
 	{
 		command: 'spegit',
 		type: 'sound',
+		description: 'Aaron saying pizza',
 		file: 'spegit pizza.ogg'
 	},
 	{
 		command: 'nobber',
 		type: 'sound',
-		file: 'nobber.mp3'
+		description: 'Nob your nobber',
+		file: 'nobber.ogg'
 	},
 	{
 		command: 'sexy',
 		type: 'sound',
+		description: 'Sexy egg',
 		file: 'sexy egg.ogg'
 	},
 	{
 		command: 'sam',
 		type: 'sound',
-		file: 'sam.mp3'
+		description: 'SAAAAAM!',
+		file: 'sam.ogg'
 	}
 ];
 
 // Function definitions
+function buildHelpMsg(commandList) {
+	helpMsg = "HERE'S WHAT I CAN DO:";
+	helpMsg += '\n---------------------'
+	commandList.forEach(element => {
+		helpMsg += '\n!' + element.command + ' - ' + element.description
+	});
+	helpMsg += '\n---------------------'
+	helpMsg += '\nSO THERE!';
+	return helpMsg;
+}
+
 function listVoiceChannels(server) {
     var channels = bot.servers[server].channels;
     for (var channel in channels) {
@@ -144,6 +168,7 @@ logger.remove(logger.transports.Console);
 logger.add(logger.transports.Console, {
     colorize: true
 });
+
 logger.level = 'debug';
 
 // Initialize Discord Bot
@@ -152,8 +177,17 @@ var bot = new Discord.Client({
    autorun: true
 });
 
+// Handle disconnect event
+bot.on('disconnect', function(errMsg, code) {
+	logger.error('Disconnected!');
+	logger.error('Error Message: ', errMsg);
+	logger.error('Code: ', code);
+	dumpBotJSON();
+});
+
 var isReady = false;
 
+// Handle ready event
 bot.on('ready', function (evt) {
     logger.info('Connected');
     logger.info('Logged in as: ');
@@ -163,10 +197,11 @@ bot.on('ready', function (evt) {
     //listServers();
 });
 
+// Handle message events
 bot.on('message', function (user, userID, channelID, message, evt) {
     // Our bot needs to know if it will execute a command
     // It will listen for messages that will start with `!`
-    if (message.substring(0, 1) == '!') {
+    if (message.substring(0, 1) == '!' && userID != bot.id) {
 
         var args = message.substring(1).split(' ');
         var cmd = args[0];
@@ -201,30 +236,47 @@ bot.on('message', function (user, userID, channelID, message, evt) {
             return;
         }
         else {
-        	cmdArry.find( function(cmdObj) {
-        		if (cmdObj.command == cmd) {
-        			logger.info('Valid command: ' + cmd);
-        			isReady = false;
-        			switch (cmdObj.type) {
-        				case 'ttsMessage':
-			                bot.sendMessage({
-			                    to: channelID,
-			                    message: cmdObj.content,
-			                    tts: true
-			                });
-			                isReady = true;
-        					break;
+			cmdObj = cmdArry.find( function(obj) {
+				return obj.command === cmd;
+			});
 
-    					case 'sound':
-		        			playSoundInChannel(cmdObj.file, userID, channelID, function(err) {
-		                    	isReady = true;
-		                    	if (err) return logger.error(err);
-        					});
-        					break;
-        			}
-        			return;
-        		}
-        	});
+			if (cmdObj !== undefined) {
+				logger.info('Valid command: ' + cmd);
+					
+				switch (cmdObj.type) {
+					case 'help':
+						bot.sendMessage({
+							to: channelID,
+							message: buildHelpMsg(cmdArry)
+						});
+						break;
+
+					case 'ttsMessage':
+						isReady = false;
+						bot.sendMessage({
+							to: channelID,
+							message: cmdObj.content,
+							tts: true
+						});
+						isReady = true;
+						break;
+
+					case 'sound':
+						isReady = false;
+						playSoundInChannel(cmdObj.file, userID, channelID, function(err) {
+							isReady = true;
+							if (err) return logger.error(err);
+						});
+						break;
+				}
+			}
+			else {
+				logger.info('Invalid command: ' + cmd);
+				bot.sendMessage({
+					to: channelID,
+					message: "THAT'S NOT A VALID COMMAND YOU PLONKER!"
+				});
+			}
 
         	// switch(cmd) {
 	        //     case 'thot':
@@ -315,14 +367,6 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 	            //     dumpBotJSON()
 	            //     break;
 	            // 
-
-	            // default:
-	            //     logger.info('Invalid command: ' + cmd);
-	            //     bot.sendMessage({
-	            //         to: channelID,
-	            //         message: "THAT'S NOT A VALID COMMAND YOU PLONKER!"
-	            //     });
-	            //     break;
         	// }
         }
     }
